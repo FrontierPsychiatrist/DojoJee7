@@ -10,6 +10,10 @@ import javax.inject.Named;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.Serializable;
+import java.nio.charset.Charset;
+import java.nio.file.FileSystem;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 
 /**
@@ -21,7 +25,7 @@ public class ProductCatalogReader implements ItemReader {
 
     @Override
 	public void open(Serializable serializable) throws Exception {
-        fileReader = new BufferedReader(new InputStreamReader(getClass().getClassLoader().getResourceAsStream("batch/product-items.csv")));
+        fileReader = Files.newBufferedReader(Paths.get(getClass().getClassLoader().getResource("batch/product-items.csv").toURI()), Charset.defaultCharset());
     }
 
 	@Override
