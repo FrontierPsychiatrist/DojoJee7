@@ -21,6 +21,10 @@ public class ExchangeRateProvider {
 	}
 
 	public BigDecimal getExchangeRate(Currency source, Currency target) {
+		if (source.equals(target)) {
+			return BigDecimal.ONE;
+		}
+
 		if (!exchangeRates.containsKey(source) || exchangeRates.get(source).containsKey(target)) {
 			throw new RuntimeException("Unknown exchange rate");
 		}
