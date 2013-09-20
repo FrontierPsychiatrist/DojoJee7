@@ -9,7 +9,14 @@
 <html>
 <head>
     <title>Hello JEE7</title>
+    <script type="text/javascript">
+        var ws = new WebSocket("ws://localhost:8080/jee7-1.0-SNAPSHOT/websocket");
+        ws.onmessage = function(message) {
+            console.log(message.data);
+        };
+    </script>
 </head>
+
 <body>
 
 </body>
