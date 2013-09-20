@@ -30,4 +30,9 @@ public class Price {
 	public void setCurrency(Currency currency) {
 		this.currency = currency;
 	}
+
+    public static Price valueOf(String priceString, String currencyString) {
+        Price price = new Price(new BigDecimal(priceString), Currency.getInstance(currencyString));
+        return price;
+    }
 }

@@ -1,0 +1,57 @@
+package batch;
+
+import batch.exceptions.NotEnoughFieldsException;
+import model.Price;
+import model.ProductItem;
+
+import javax.batch.api.chunk.ItemReader;
+import javax.batch.api.chunk.ItemWriter;
+import javax.inject.Named;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.Serializable;
+import java.util.List;
+
+/**
+ * @author Gregor Tudan
+ */
+@Named("ProductCatalogReader")
+public class ProductCatalogReader implements ItemReader {
+	private BufferedReader fileReader;
+
+    @Override
+	public void open(Serializable serializable) throws Exception {
+        fileReader = new BufferedReader(new InputStreamReader(getClass().getClassLoader().getResourceAsStream("batch/product-items.csv")));
+    }
+
+	@Override
+	public void close() throws Exception {
+		fileReader.close();
+	}
+
+	@Override
+	public Object readItem() throws Exception {
+        String line = fileReader.readLine();
+        String[] tokens = line.split(";");
+        if(tokens.length != 5) {
+            throw new NotEnoughFieldsException();
+        }
+        ProductItem productItem = getProductItem(tokens);
+        return productItem;
+
+	}
+
+    private ProductItem getProductItem(String[] tokens) {
+        Long productNumber = Long.valueOf(tokens[0]);
+        ProductItem productItem = new ProductItem(productNumber, tokens[1]);
+        productItem.setDescription(tokens[2]);
+        Price price = Price.valueOf(tokens[3], tokens[4]);
+        productItem.setPrice(price);
+        return productItem;
+    }
+
+    @Override
+	public Serializable checkpointInfo() throws Exception {
+		return null;
+	}
+}
