@@ -52,6 +52,6 @@ public class ProductItem {
 	}
 	
 	public String toString(){
-		return productNumber.toString() +";"+name+";"+description+";"+price.getAmount()+";"+price.getCurrency();
+		return productNumber.toString() +";"+name+";"+description+";"+price.getAmount()+";"+price.getCurrency()+"\n";
 	}
 }

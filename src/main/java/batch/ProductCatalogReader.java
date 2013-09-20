@@ -10,9 +10,11 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.BufferedReader;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Currency;
 
 /**
  * @author Gregor Tudan
@@ -38,6 +40,7 @@ public class ProductCatalogReader implements ItemReader {
 	@Override
 	public Object readItem() throws Exception {
         String line = fileReader.readLine();
+        if(line == null) return null;
         String[] tokens = line.split(";");
         if(tokens.length != 5) {
             throw new NotEnoughFieldsException();
@@ -51,7 +54,7 @@ public class ProductCatalogReader implements ItemReader {
         Long productNumber = Long.valueOf(tokens[0]);
         ProductItem productItem = new ProductItem(productNumber, tokens[1]);
         productItem.setDescription(tokens[2]);
-        Price price = Price.valueOf(tokens[3], tokens[4]);
+        Price price = new Price(new BigDecimal(tokens[3]), Currency.getInstance(tokens[4]));
         productItem.setPrice(price);
         return productItem;
     }
