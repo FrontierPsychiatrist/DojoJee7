@@ -5,7 +5,6 @@ import model.ProductItem;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Answers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
@@ -19,7 +18,6 @@ import java.util.Properties;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.number.BigDecimalCloseTo.closeTo;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -49,11 +47,9 @@ public class ProductItemProcessorTest {
 
 	@Test
 	public void testProcessItem() throws Exception {
-
-		ProductItem item = new ProductItem(02L, "Base");
+		ProductItem item = new ProductItem(2L, "Base");
 		item.setPrice(new Price(new BigDecimal(20), USD));
-		when(exchangeRateProvider.getExchangeRate(USD, EUR))
-				.thenReturn(new BigDecimal("0.75"));
+		when(exchangeRateProvider.getExchangeRate(USD, EUR)).thenReturn(new BigDecimal("0.75"));
 
 		processor.processItem(item);
 
