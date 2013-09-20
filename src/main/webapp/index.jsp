@@ -11,6 +11,6 @@
     <title>Hello JEE7</title>
 </head>
 <body>
-
+    <h1>Glassfish running</h1>
 </body>
 </html>
