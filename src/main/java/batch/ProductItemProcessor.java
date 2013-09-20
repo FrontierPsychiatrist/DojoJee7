@@ -2,6 +2,8 @@ package batch;
 
 import model.Price;
 import model.ProductItem;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import util.ExchangeRateProvider;
 
 import javax.batch.api.chunk.ItemProcessor;
@@ -23,17 +25,21 @@ public class ProductItemProcessor implements ItemProcessor{
 	private JobContext jobCtx;
 	private Currency targetCurrency;
 
+	private Logger log = LoggerFactory.getLogger(getClass());
+
 	@Inject
 	private ExchangeRateProvider exchangeRateProvider;
 
 	public void init() {
 		String currencyProp = jobCtx.getProperties().getProperty("targetCurrency", "EUR");
 		targetCurrency = Currency.getInstance(currencyProp);
+		log.debug("Initialized new exchange");
 	}
 
 	@Override
 	public Object processItem(Object o) throws Exception {
 		ProductItem item = (ProductItem) o;
+		log.debug("Processing item {}", item.getName());
 		Price newPrice = convertCurrency(item.getPrice(), targetCurrency);
 		item.setPrice(newPrice);
 		return item;
