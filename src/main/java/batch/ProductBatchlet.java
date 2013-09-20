@@ -17,11 +17,12 @@ public class ProductBatchlet implements Batchlet {
 
 	@Override
 	public String process() throws Exception {
-		return null;  //To change body of implemented methods use File | Settings | File Templates.
+		System.out.println("Job started");
+		return "Job started";
 	}
 
+	
 	@Override
 	public void stop() throws Exception {
-		//To change body of implemented methods use File | Settings | File Templates.
 	}
 }
