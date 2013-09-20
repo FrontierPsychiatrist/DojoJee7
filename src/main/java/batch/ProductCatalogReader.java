@@ -5,16 +5,14 @@ import model.Price;
 import model.ProductItem;
 
 import javax.batch.api.chunk.ItemReader;
-import javax.batch.api.chunk.ItemWriter;
+import javax.batch.runtime.context.JobContext;
+import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.io.Serializable;
 import java.nio.charset.Charset;
-import java.nio.file.FileSystem;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.List;
 
 /**
  * @author Gregor Tudan
@@ -23,9 +21,13 @@ import java.util.List;
 public class ProductCatalogReader implements ItemReader {
 	private BufferedReader fileReader;
 
+    @Inject
+    private JobContext jobContext;
+
     @Override
 	public void open(Serializable serializable) throws Exception {
-        fileReader = Files.newBufferedReader(Paths.get(getClass().getClassLoader().getResource("batch/product-items.csv").toURI()), Charset.defaultCharset());
+        String fileName = jobContext.getProperties().getProperty("input-file");
+        fileReader = Files.newBufferedReader(Paths.get(getClass().getClassLoader().getResource(fileName).toURI()), Charset.defaultCharset());
     }
 
 	@Override
