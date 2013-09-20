@@ -19,10 +19,8 @@ public class WebsocketEndpoint {
 
     @OnMessage
     public void onMessage(String message, Session session) {
-        try {
-            session.getBasicRemote().sendText("Hi zurück!");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+	    try {
+		    session.getBasicRemote().sendText(message);
+	    } catch (IOException ignored) {  }
     }
 }
