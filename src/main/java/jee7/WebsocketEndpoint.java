@@ -19,8 +19,10 @@ public class WebsocketEndpoint {
 
     @OnMessage
     public void onMessage(String message, Session session) {
-	    try {
-		    session.getBasicRemote().sendText(message);
-	    } catch (IOException ignored) {  }
+        try {
+            session.getBasicRemote().sendText("Antwort: " + message);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
