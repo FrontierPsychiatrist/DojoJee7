@@ -31,7 +31,7 @@
                         </label>
                     </div>
                 </form>
-                <span>{{answer}}</span>
+                <span ng-repeat="answer in answers">{{answer.message}}<br/></span>
             </div>
         </div>
     </div>
