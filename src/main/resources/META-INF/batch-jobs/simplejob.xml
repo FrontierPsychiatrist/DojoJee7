@@ -4,10 +4,12 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/javaee/jobXML_1_0.xsd">
 	<properties>
 		<property name="input-file" value="batch/product-items.csv" />
+        <property name="output-file" value="output-product-items.csv"/>
+        <property name="targetCurrency" value="EUR"/>
 	</properties>
 	<step id="convertCurrencyStep">
 		<chunk>
-			<reader ref="ProductCatalogReader" />
+			<reader ref="ProductCatalogReader"/>
 			<processor ref="ProductItemProcessor" />
 			<writer ref="ProductCatalogWriter" />
 		</chunk>

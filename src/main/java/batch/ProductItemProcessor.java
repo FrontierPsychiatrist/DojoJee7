@@ -6,12 +6,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import util.ExchangeRateProvider;
 
+import javax.annotation.PostConstruct;
 import javax.batch.api.chunk.ItemProcessor;
 import javax.batch.runtime.context.JobContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.math.BigDecimal;
-import java.math.MathContext;
 import java.math.RoundingMode;
 import java.util.Currency;
 
@@ -30,6 +30,7 @@ public class ProductItemProcessor implements ItemProcessor{
 	@Inject
 	private ExchangeRateProvider exchangeRateProvider;
 
+    @PostConstruct
 	public void init() {
 		String currencyProp = jobCtx.getProperties().getProperty("targetCurrency", "EUR");
 		targetCurrency = Currency.getInstance(currencyProp);
