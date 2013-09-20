@@ -7,8 +7,8 @@ import java.util.Currency;
  * @author Gregor Tudan
  */
 public class Price {
-	BigDecimal amount;
-	Currency currency;
+	BigDecimal amount = BigDecimal.ZERO;
+	Currency currency = Currency.getInstance("EUR");
 
 	public Price(BigDecimal amount, Currency currency) {
 		this.amount = amount;
