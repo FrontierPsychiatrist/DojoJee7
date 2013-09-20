@@ -49,4 +49,8 @@ public class ProductItem {
 	public void setPrice(Price price) {
 		this.price = price;
 	}
+	
+	public String toString(){
+		return productNumber.toString() +";"+name+";"+description+";"+price.getAmount()+";"+price.getCurrency();
+	}
 }
