@@ -7,9 +7,9 @@
 	</properties>
 	<step id="convertCurrencyStep">
 		<chunk>
-			<reader ref="ProductCatalogDao" />
+			<reader ref="ProductCatalogReader" />
 			<processor ref="ProductItemProcessor" />
-			<writer ref="ProductCatalogDao" />
+			<writer ref="ProductCatalogWriter" />
 		</chunk>
 	</step>
 
