@@ -28,6 +28,7 @@ public class ExchangeRateProvider {
 		if (!exchangeRates.containsKey(source) || exchangeRates.get(source).containsKey(target)) {
 			throw new RuntimeException("Unknown exchange rate");
 		}
+
 		return exchangeRates.get(source).get(target);
 	}
 }

@@ -9,6 +9,8 @@ import javax.batch.runtime.context.JobContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
 import java.util.Currency;
 
 /**
@@ -41,6 +43,8 @@ public class ProductItemProcessor implements ItemProcessor{
 		Currency sourceCurrency = price.getCurrency();
 
 		BigDecimal exchangeRate = exchangeRateProvider.getExchangeRate(sourceCurrency, targetCurrency);
-		return new Price(price.getAmount().multiply(exchangeRate), targetCurrency);
+		return new Price(price.getAmount().divide(exchangeRate, 6, RoundingMode.HALF_UP), targetCurrency);
 	}
+
+
 }

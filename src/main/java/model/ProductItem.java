@@ -2,6 +2,7 @@ package model;
 
 import java.math.BigDecimal;
 import java.util.Currency;
+import java.util.Locale;
 
 /**
  * @author Gregor Tudan
