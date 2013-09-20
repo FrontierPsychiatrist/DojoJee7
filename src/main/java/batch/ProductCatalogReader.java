@@ -3,6 +3,8 @@ package batch;
 import batch.exceptions.NotEnoughFieldsException;
 import model.Price;
 import model.ProductItem;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.batch.api.chunk.ItemReader;
 import javax.batch.runtime.context.JobContext;
@@ -20,6 +22,7 @@ import java.nio.file.Paths;
 @Named("ProductCatalogReader")
 public class ProductCatalogReader implements ItemReader {
 	private BufferedReader fileReader;
+	private Logger log = LoggerFactory.getLogger(getClass());
 
     @Inject
     private JobContext jobContext;
@@ -43,6 +46,7 @@ public class ProductCatalogReader implements ItemReader {
             throw new NotEnoughFieldsException();
         }
         ProductItem productItem = getProductItem(tokens);
+		log.debug("Read item {}", productItem.getName());
         return productItem;
 
 	}

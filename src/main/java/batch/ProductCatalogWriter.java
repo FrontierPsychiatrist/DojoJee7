@@ -9,6 +9,8 @@ import javax.batch.api.chunk.ItemWriter;
 import javax.inject.Named;
 
 import model.ProductItem;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * User: moritz
@@ -16,9 +18,10 @@ import model.ProductItem;
 @Named("ProductCatalogWriter")
 public class ProductCatalogWriter implements ItemWriter {
 	private BufferedWriter fileWriter;
-	
-	
-    @Override
+	private Logger log = LoggerFactory.getLogger(getClass());
+
+
+	@Override
 	public void open(Serializable serializable) throws Exception {
         fileWriter = new BufferedWriter(new FileWriter("batch/product-items.csv"));
     }
@@ -30,6 +33,7 @@ public class ProductCatalogWriter implements ItemWriter {
 
     @Override
     public void writeItems(List<Object> objects) throws Exception {
+	    log.debug("Writing item");
     	for(Object object : objects){
     		ProductItem productItem = (ProductItem) object;
 			fileWriter.write(productItem.toString());
