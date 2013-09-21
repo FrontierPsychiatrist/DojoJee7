@@ -15,13 +15,13 @@ import domain.Transaction;
  */
 @LocalBean
 @Stateless
-@JMSDestinationDefinition(name="java:global/jms/taskqueue",interfaceName = "javax.jms.Queue")
+@JMSDestinationDefinition(name="java:global/jms/taskQueue",interfaceName = "javax.jms.Queue")
 public class SenderBean {
 
 	@Inject
 	private JMSContext context;
 
-	@Resource(lookup = "java:global/jms/taskqueue")
+	@Resource(lookup = "java:global/jms/taskQueue")
 	private Queue queue;
 
 	public void sendMessageJavaEE7(Transaction transaction) {
