@@ -22,8 +22,8 @@ public class Mandant implements Serializable {
 	private int anzahlMitarbeiter;
 
 	public String toString(){
-		logger.info("Mandant:\n Firmenname :" + firmenname + "\n Name: " + vorname + " " + nachname + "\n AnzahlMitarbeiter:" + anzahlMitarbeiter);
-		
+		logger.info("Mandant:\n Firmenname :" + firmenname + "\n Name: " + vorname + " " + name + "\n AnzahlMitarbeiter:" + anzahlMitarbeiter);
+		return "Mandant:\n Firmenname :" + firmenname + "\n Name: " + vorname + " " + name + "\n AnzahlMitarbeiter:" + anzahlMitarbeiter;
 	}
 
 	/**
