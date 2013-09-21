@@ -27,8 +27,7 @@ public class TransactionQueueWriter implements ItemWriter{
 	
 	@Resource(lookup = "java:global/jms/taskQueue")
 	private Queue queue;
-	
-	@Inject 
+
 	private TransactionReport transactionReport;
 	
 	@Inject
@@ -36,19 +35,18 @@ public class TransactionQueueWriter implements ItemWriter{
 	
 	@Override
 	public void open(Serializable checkpoint) throws Exception {
-		log.info("Fire Event: "+ transactionReport.toString());
-		event.fire(new ProcessingCompleteEvent(transactionReport));
+		transactionReport = new TransactionReport();
 	}
 
 	@Override
 	public void close() throws Exception {
-		//
+		event.fire(new ProcessingCompleteEvent(transactionReport));
 	}
 
 	@Override
 	public void writeItems(List<Object> items) throws Exception {
-		for(Object transactionResult : items){
-			this.transactionReport.getTransactionResults().add((TransactionResult) transactionResult);
+		for (Object result : items) {
+			transactionReport.getTransactionResults().add((TransactionResult) result);
 		}
 	}
 

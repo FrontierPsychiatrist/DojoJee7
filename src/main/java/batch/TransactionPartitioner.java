@@ -24,7 +24,7 @@ public class TransactionPartitioner implements PartitionMapper {
 
 			@Override
 			public int getPartitions() {
-				return 20;
+				return 1;
 			}
 
 			@Override

@@ -30,11 +30,10 @@ public class TransactionDecoder implements Decoder.Text<Transaction> {
 		log.debug("Decoding {}",s);
 		JsonReader reader = Json.createReader(new StringReader(s));
 		JsonObject jsonObject = reader.readObject();
-		Transaction transaction = new Transaction();
+		Transaction transaction = new Transaction(jsonObject.getString("expression"));
 		transaction.setName(jsonObject.getString("name"));
 		transaction.setWert1(jsonObject.getInt("number1"));
 		transaction.setWert2(jsonObject.getInt("number2"));
-		transaction.setExpression(jsonObject.getString("expression"));
 		return transaction;
 
 	}
