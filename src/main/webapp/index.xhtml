@@ -19,17 +19,60 @@
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
     <meta content="text/html;charset=UTF-8"/>
 </h:head>
-<h:body>
+<body ng-app="BigRockApp">
     <div class="page-header">
-        <h1>JEE7 <small>!!!!!!</small></h1>
+        <h1>JEE7 <small>"the big rock"</small></h1>
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <h1>Hi!</h1>
+            <div class="col-md-6">
+                <div class="panel panel-primary" ng-controller="SendCtrl">
+                    <div class="panel-heading"><h4>Daten eingeben</h4></div>
+                    <div class="panel-body">
+                        <form class="form-horizontal" ng-submit="send()">
+                            <div class="form-group">
+                                <label class="col-lg-2" for="name">Name</label>
+                                <div class="col-lg-10">
+                                    <input class="form-control" id="name" type="text" ng-model="name" placeholder="Name"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-2" for="number1">Zahl 1</label>
+                                <div class="col-lg-10">
+                                    <input class="form-control" id="number1" type="text" ng-model="number1" placeholder="Zahl 1"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-2" for="number2">Zahl 2</label>
+                                <div class="col-lg-10">
+                                    <input class="form-control" id="number2" type="text" ng-model="number2" placeholder="Zahl 2"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-2" for="expression">Expression</label>
+                                <div class="col-lg-10">
+                                    <input class="form-control" id="expression" type="text" ng-model="expression" placeholder="Expression"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-offset-2 col-lg-10">
+                                    <button type="submit" class="btn btn-default">Abschicken</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-info" ng-controller="RecvCtrl">
+                    <div class="panel-heading"><h4>Ergebnisse</h4></div>
+                    <div class="panel-body">
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</h:body>
+</body>
 
 </html>

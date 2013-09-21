@@ -1,0 +1,9 @@
+<job id="SimplePayrollJob" xmlns="http://xmlns.jcp.org/xml/ns/javaee" version="1.0"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/javaee/jobXML_1_0.xsd">
+    <step id="process">
+        <chunk item-count="2">
+            
+        </chunk>
+    </step>
+</job>
