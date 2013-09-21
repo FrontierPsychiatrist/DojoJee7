@@ -11,14 +11,22 @@ function AppCtrl($scope) {
       expression: $scope.expression
     };
     ws.send(JSON.stringify(obj));
-  }
+  },
+  $scope.alertClass = "alert alert-info",
+  $scope.alertText = "Status",
   $scope.start = function() {
     $.ajax('/StartServlet', {
       beforeSend: function() {
-
+        $scope.alertText = "Starting...";
       },
       success: function() {
-
+        $scope.alertText = "Batch job gestartet!";
+        $scope.alertClass = "alert alert-success";
+        $scope.$apply();
+      }, error: function() {
+        $scope.alertText = "Fehler!";
+        $scope.alertClass = "alert alert-danger";
+        $scope.$apply();
       }
     })
   }
