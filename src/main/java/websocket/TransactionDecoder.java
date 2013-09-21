@@ -21,7 +21,7 @@ import java.io.StringReader;
  * @author Gregor Tudan + Thomas Krämer
  */
 
-public class TransactionDecoder implements Decoder.Text<ChatMessage> {
+public class TransactionDecoder implements Decoder.Text<Transaction> {
 
 	private Logger log = LoggerFactory.getLogger(getClass());
 
@@ -30,7 +30,7 @@ public class TransactionDecoder implements Decoder.Text<ChatMessage> {
 		log.debug("Decoding {}",s);
 		JsonReader reader = Json.createReader(new StringReader(s));
 		JsonObject jsonObject = reader.readObject();
-		Transaction transaction;
+		Transaction transaction = new Transaction();
 		transaction.setName(jsonObject.getString("name"));
 		transaction.setWert1(jsonObject.getInt("number1"));
 		transaction.setWert2(jsonObject.getInt("number2"));

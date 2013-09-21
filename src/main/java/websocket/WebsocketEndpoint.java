@@ -1,10 +1,6 @@
-package jee7;
+package websocket;
 
 import org.slf4j.LoggerFactory;
-
-
-
-
 
 import domain.Transaction;
 
@@ -40,7 +36,7 @@ public class WebsocketEndpoint {
         		//s.getBasicRemote().sendObject(transaction);
         		
             }
-        } catch (IOException | EncodeException e) {
+        } catch (Exception e) {
            log.error(e.getMessage(),e);
         }
     }
