@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <head>
+        <title>Try to access a flow bean from outside of a flow</title>
+    </head>
+    <body>
+        <h:form prependId="false">
+            <h1>Try to access a flow bean from outside of a flow</h1>
+            <p>Flow bean name: #{flowBean.name}</p>
+
+            <p><h:commandButton id="index" value="home" action="index" /></p>
+
+        </h:form>
+    </body>
+</html>

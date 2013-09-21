@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <head>
+        <title>Second Page in Flow UIT</title>
+    </head>
+    <body bgcolor="lightblue">
+        <h:form prependId="false">
+            <h1>Second Page in Flow UIT</h1>
+            <p>Flow bean name: #{uitFlowBean.name}</p>
+
+            <p>value: <h:inputText id="input" value="#{flowScope.value}" /></p>
+
+            <p>value: <h:inputText id="input2" value="#{uitFlowBean.someValue}" /></p>
+
+            <p><h:commandButton id="start" value="back" action="uit" /></p>
+            <p><h:commandButton id="next" value="next" action="uitb" /></p>
+            <p><h:commandButton id="index" value="home" action="taskFlowReturn1" /></p>
+
+        </h:form>
+    </body>
+</html>

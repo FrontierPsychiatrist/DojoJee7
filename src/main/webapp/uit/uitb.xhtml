@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<head>
+<title>Last page in Flow UIT</title>
+</head>
+<body bgcolor="lightblue">
+
+	<h1>Last page in Flow UIT</h1>
+	<p>Flow bean name: #{uitFlowBean.name}</p>
+	<p>value: #{flowScope.value}</p>
+	<p>Bean value: #{uitFlowBean.someValue}</p>
+
+	<h:form prependId="false">
+		<p>
+			<h:commandButton id="back" value="back" action="uita" />
+		</p>
+		<p>
+			<h:commandButton id="return" value="return" action="taskFlowReturn1" />
+		</p>
+	</h:form>
+</body>
+</html>
