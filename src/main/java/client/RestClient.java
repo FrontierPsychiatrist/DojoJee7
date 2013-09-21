@@ -12,7 +12,7 @@ import javax.ws.rs.core.Response;
  */
 public class RestClient {
 	public String invokeService() {
-		Response xml = ClientBuilder.newClient().target("http://localhost:8080/jaxrs/asnyc").request(MediaType.APPLICATION_XML_TYPE).get();
+		Response xml = ClientBuilder.newClient().target("http://localhost:8080/jaxrs/fortune").request(MediaType.APPLICATION_XML_TYPE).get();
 		FortuneCookie cookie = (FortuneCookie) xml.getEntity();
 		return cookie.getWisdom();
 	}
