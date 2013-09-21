@@ -11,7 +11,7 @@ import javax.jms.Queue;
 import domain.Transaction;
 
 /**
- * @author Gregor Tudan + Thomas Kr‰mer
+ * @author Gregor Tudan + Thomas Kr√§mer
  */
 @LocalBean
 @Stateless

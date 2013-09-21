@@ -11,7 +11,7 @@ import domain.Transaction;
 import java.io.StringWriter;
 
 /**
- * @author Gregor Tudan + Thomas Kr‰mer
+ * @author Gregor Tudan + Thomas Kr√§mer
  */
 public class TransactionEncoder implements Encoder.Text<Transaction> {
 	@Override

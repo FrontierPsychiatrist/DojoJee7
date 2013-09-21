@@ -18,7 +18,7 @@ import javax.websocket.EndpointConfig;
 import java.io.StringReader;
 
 /**
- * @author Gregor Tudan + Thomas Kr‰mer
+ * @author Gregor Tudan + Thomas Kr√§mer
  */
 
 public class TransactionDecoder implements Decoder.Text<Transaction> {
