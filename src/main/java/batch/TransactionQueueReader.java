@@ -14,6 +14,8 @@ import javax.jms.Queue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import domain.Transaction;
+
 @Named("TransactionQueueReader")
 public class TransactionQueueReader implements ItemReader {
 	private Logger log = LoggerFactory.getLogger(getClass());
@@ -41,8 +43,8 @@ public class TransactionQueueReader implements ItemReader {
 	}
 
 	@Override
-	public Object readItem() throws Exception {
-		return consumer.receiveBody(Object.class);
+	public Transaction readItem() throws Exception {
+		return consumer.receiveBody(Transaction.class);
 	}
 
 	@Override
