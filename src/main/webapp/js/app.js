@@ -2,7 +2,7 @@ var BigRockApp = angular.module("BigRockApp", []);
 
 var ws = new WebSocket("ws://localhost:8080/websocket");
 
-function SendCtrl($scope) {
+function AppCtrl($scope) {
   $scope.send = function() {
     var obj = {
       name: $scope.name,
@@ -12,10 +12,14 @@ function SendCtrl($scope) {
     };
     ws.send(JSON.stringify(obj));
   }
-}
+  $scope.start = function() {
+    $.ajax('/StartServlet', {
+      beforeSend: function() {
 
-function RecvCtrl($scope) {
-  /*ws.onmessage = function (message) {
+      },
+      success: function() {
 
-  };*/
+      }
+    })
+  }
 }

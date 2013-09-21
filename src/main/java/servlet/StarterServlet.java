@@ -19,15 +19,9 @@ public class StarterServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request,
                                   HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            out.println("<html><head><title>Starter Servlet</title></head><body><h1>Servlet TestServlet at ");
-            out.println(request.getContextPath());
-            out.println("</h1>About to start the job<br>");
-            JobOperator jo = BatchRuntime.getJobOperator();
-            out.println("Got the job operator: " + jo + "<br>");
-            jo.start("SimplePayrollJob", new Properties());
-            out.println("Job submitted<br></body></html>");
-        }
+        JobOperator jo = BatchRuntime.getJobOperator();
+        jo.start("transaction-job", new Properties());
+        response.setStatus(200);
     }
 
     @Override
