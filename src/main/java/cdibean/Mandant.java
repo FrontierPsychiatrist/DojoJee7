@@ -3,18 +3,18 @@ package cdibean;
 import java.io.Serializable;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 @Named("mandant")
 @ApplicationScoped
 public class Mandant implements Serializable {
 	
-	@Inject
-	Logger logger;
+
+	Logger logger=LoggerFactory.getLogger(this.getClass());
 	
 	private String firmenname;
 	private String name;
