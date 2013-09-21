@@ -29,14 +29,10 @@ public class WebsocketEndpoint {
     @OnMessage
     public void onMessage(Transaction transaction, Session session) {
         try {
-        	for (Session s : session.getOpenSessions()) {
         		
         		senderbean.sendMessageJavaEE7(transaction);
         		
-        		//s.getBasicRemote().sendObject(transaction);
-        		
-            }
-        } catch (Exception e) {
+            } catch (Exception e) {
            log.error(e.getMessage(),e);
         }
     }
