@@ -1,19 +1,21 @@
 package client;
 
-import rs.FortuneCookie;
+import jpa.FortuneCookie;
 
-import javax.ws.rs.client.Client;
+import javax.enterprise.context.ApplicationScoped;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 
 /**
  * @author Gregor Tudan
  */
+@ApplicationScoped
 public class RestClient {
 	public String invokeService() {
-		Response xml = ClientBuilder.newClient().target("http://localhost:8080/jaxrs/fortune").request(MediaType.APPLICATION_XML_TYPE).get();
-		FortuneCookie cookie = (FortuneCookie) xml.getEntity();
+		FortuneCookie cookie = ClientBuilder.newClient()
+				.target("http://localhost:8080/jaxrs/fortune")
+				.request(MediaType.APPLICATION_JSON)
+				.get(FortuneCookie.class);
 		return cookie.getWisdom();
 	}
 }
