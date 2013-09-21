@@ -1,18 +1,18 @@
 package cdi;
 
-import domain.TransactionResult;
+import domain.TransactionReport;
 
 /**
  * @author Gregor Tudan
  */
 public class ProcessingCompleteEvent {
-	private TransactionResult result;
+	private TransactionReport result;
 
-	public ProcessingCompleteEvent(TransactionResult result) {
+	public ProcessingCompleteEvent(TransactionReport result) {
 		this.result = result;
 	}
 
-	public TransactionResult getResult() {
+	public TransactionReport getResult() {
 		return result;
 	}
 }
