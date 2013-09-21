@@ -1,6 +1,6 @@
 var BigRockApp = angular.module("BigRockApp", []);
 
-//var ws = new WebSocket("ws://localhost:8080/websocket");
+var ws = new WebSocket("ws://localhost:8080/websocket");
 
 function SendCtrl($scope) {
   $scope.send = function() {
@@ -10,10 +10,7 @@ function SendCtrl($scope) {
       number2: $scope.number2,
       expression: $scope.expression
     };
-    console.log(JSON.stringify(obj));
-    /*ws.send(
-
-    );*/
+    ws.send(JSON.stringify(obj));
   }
 }
 

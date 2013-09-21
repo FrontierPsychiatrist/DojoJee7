@@ -25,37 +25,37 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <div class="panel panel-primary" ng-controller="SendCtrl">
                     <div class="panel-heading"><h4>Daten eingeben</h4></div>
                     <div class="panel-body">
                         <form class="form-horizontal" ng-submit="send()">
                             <div class="form-group">
-                                <label class="col-lg-2" for="name">Name</label>
-                                <div class="col-lg-10">
+                                <label class="col-lg-4" for="name">Name</label>
+                                <div class="col-lg-8">
                                     <input class="form-control" id="name" type="text" ng-model="name" placeholder="Name"/>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-lg-2" for="number1">Zahl 1</label>
-                                <div class="col-lg-10">
+                                <label class="col-lg-4" for="number1">Zahl 1</label>
+                                <div class="col-lg-8">
                                     <input class="form-control" id="number1" type="text" ng-model="number1" placeholder="Zahl 1"/>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-lg-2" for="number2">Zahl 2</label>
-                                <div class="col-lg-10">
+                                <label class="col-lg-4" for="number2">Zahl 2</label>
+                                <div class="col-lg-8">
                                     <input class="form-control" id="number2" type="text" ng-model="number2" placeholder="Zahl 2"/>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-lg-2" for="expression">Expression</label>
-                                <div class="col-lg-10">
+                                <label class="col-lg-4" for="expression">Expression</label>
+                                <div class="col-lg-8">
                                     <input class="form-control" id="expression" type="text" ng-model="expression" placeholder="Expression"/>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="col-lg-offset-2 col-lg-10">
+                                <div class="col-lg-offset-2 col-lg-8">
                                     <button type="submit" class="btn btn-default">Abschicken</button>
                                 </div>
                             </div>
@@ -63,7 +63,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-7">
                 <div class="panel panel-info" ng-controller="RecvCtrl">
                     <div class="panel-heading"><h4>Ergebnisse</h4></div>
                     <div class="panel-body">
