@@ -37,9 +37,7 @@ public class WebsocketEndpoint {
     @OnMessage
     public void onMessage(Transaction transaction, Session session) {
         try {
-        		
-        		senderbean.sendMessageJavaEE7(transaction);
-        		
+                senderbean.sendMessageJavaEE7(transaction);
             } catch (Exception e) {
            log.error(e.getMessage(),e);
         }

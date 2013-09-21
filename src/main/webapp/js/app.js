@@ -12,6 +12,16 @@ function SendCtrl($scope) {
     };
     ws.send(JSON.stringify(obj));
   }
+  $scope.start = function() {
+    $.ajax('/StartServlet', {
+      beforeSend: function() {
+
+      },
+      success: function() {
+
+      }
+    })
+  }
 }
 
 function RecvCtrl($scope) {
