@@ -6,7 +6,7 @@ public class Transaction implements Serializable {
 	private String name;
 	private int wert1;
 	private int wert2;
-	private String expression
+	private String expression;
 	/**
 	 * @return the name
 	 */
