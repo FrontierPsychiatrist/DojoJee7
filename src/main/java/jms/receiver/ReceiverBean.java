@@ -25,7 +25,7 @@ import java.util.List;
  */
 @LocalBean
 @Stateless
-public class ReceiverBean extends HttpServlet{
+public class ReceiverBean {
 
 	@Inject
 	private JMSContext context;
