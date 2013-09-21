@@ -7,6 +7,11 @@ public class Transaction implements Serializable {
 	private int wert1;
 	private int wert2;
 	private String expression;
+
+	public Transaction(String expression) {
+		this.expression = expression;
+	}
+
 	/**
 	 * @return the name
 	 */
