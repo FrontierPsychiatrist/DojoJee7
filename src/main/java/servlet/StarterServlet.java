@@ -20,7 +20,7 @@ public class StarterServlet extends HttpServlet {
                                   HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         JobOperator jo = BatchRuntime.getJobOperator();
-        jo.start("SimplePayrollJob", new Properties());
+        jo.start("transaction-job", new Properties());
         response.setStatus(200);
     }
 
