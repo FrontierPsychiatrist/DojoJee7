@@ -24,9 +24,6 @@ public class TransactionQueueWriter implements ItemWriter{
 	
 	@Inject
 	private JMSContext context;
-	
-	@Resource(lookup = "java:global/jms/taskQueue")
-	private Queue queue;
 
 	private TransactionReport transactionReport;
 	
